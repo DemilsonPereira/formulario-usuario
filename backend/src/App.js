@@ -1,6 +1,7 @@
 import express from "express";
 import * as dotenv from "dotenv";
 import cors from "cors";
+import morgan from 'morgan'
 dotenv.config();
 
 import { router } from "./routes.js";
@@ -18,6 +19,7 @@ class App {
         this.app.use(express.urlencoded({ extended: true }));
         this.app.use(express.json());
         this.app.use(cors());
+        this.app.use(morgan('dev'));
     }
 
     router() {
